@@ -1,0 +1,214 @@
+$icon-font-path: "/bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap/";
+
+// bower:scss
+@import '../../bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap.scss';
+// endbower
+@mixin filler($imgpath,$size:100%,$repeat: no-repeat){
+    background: {
+        image: url($imgpath);
+        size: $size;
+        repeat: $repeat;
+
+    }
+}
+
+@mixin bg($imgpath,$size:100%,$repeat: repeat-y){
+    background: {
+        image: url($imgpath);
+        size: $size;
+        repeat: $repeat;
+
+    }
+}
+
+.oval-speech {
+  position:relative;
+  width:270px;
+  padding:50px 40px;
+  margin-left:65%;
+  text-align:center;
+  color:#fff;
+  background:#5a8f00;
+  background:-webkit-gradient(linear, 0 0, 0 100%, from(#b8db29), to(#5a8f00));
+  background:-moz-linear-gradient(#b8db29, #5a8f00);
+  background:-o-linear-gradient(#b8db29, #5a8f00);
+  background:linear-gradient(#b8db29, #5a8f00);
+  -webkit-border-top-left-radius:220px 120px;
+  -webkit-border-top-right-radius:220px 120px;
+  -webkit-border-bottom-right-radius:220px 120px;
+  -webkit-border-bottom-left-radius:220px 120px;
+  -moz-border-radius:220px / 120px;
+  border-radius:220px / 120px;
+}
+
+.oval-speech p {font-size:1.25em;}
+
+/* creates part of the curve */
+.oval-speech:before {
+  content:"";
+  position:absolute;
+  z-index:-1;
+  bottom:-30px;
+  right:50%;
+  height:30px;
+  border-right:60px solid #5a8f00;
+  background:#5a8f00; /* need this for webkit - bug in handling of border-radius */
+  /* css3 */
+  -webkit-border-bottom-right-radius:80px 50px;
+  -moz-border-radius-bottomright:80px 50px;
+  border-bottom-right-radius:80px 50px;
+  /* using translate to avoid undesired appearance in CSS2.1-capabable but CSS3-incapable browsers */
+  -webkit-transform:translate(0, -2px);
+  -moz-transform:translate(0, -2px);
+  -ms-transform:translate(0, -2px);
+  -o-transform:translate(0, -2px);
+  transform:translate(0, -2px);
+}
+
+/* creates part of the curved pointy bit */
+.oval-speech:after {
+  content:"";
+  position:absolute;
+  z-index:-1;
+  bottom:-30px;
+  right:50%;
+  width:60px;
+  height:30px;
+  /*background:#fff;*/
+  /* css3 */
+  -webkit-border-bottom-right-radius:40px 50px;
+  -moz-border-radius-bottomright:40px 50px;
+  border-bottom-right-radius:40px 50px;
+  /* using translate to avoid undesired appearance in CSS2.1-capabable but CSS3-incapable browsers */
+  -webkit-transform:translate(-30px, -2px);
+  -moz-transform:translate(-30px, -2px);
+  -ms-transform:translate(-30px, -2px);
+  -o-transform:translate(-30px, -2px);
+  transform:translate(-30px, -2px);
+}
+
+.hide {
+    display: none;
+}
+
+.browsehappy {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+/* Space out content a bit */
+body {
+    @include bg("images/body-content-bg.jpg");
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    .logo{
+        vertical-align: middle;
+    }
+}
+
+/* Everything but the jumbotron gets side spacing for mobile first views */
+.header,
+.marketing,
+.footer {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Custom page header */
+.header {
+    border-bottom: 1px solid #e5e5e5;
+
+    /* Make the masthead heading the same height as the navigation */
+    h3 {
+        margin-top: 0;
+        margin-bottom: 0;
+        line-height: 40px;
+        padding-bottom: 19px;
+    }
+}
+
+/* Custom page footer */
+.footer {
+    padding-top: 19px;
+    color: #777;
+    border-top: 1px solid #e5e5e5;
+}
+
+.container-narrow > hr {
+    margin: 30px 0;
+}
+
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+
+/* Main marketing message and sign up button */
+.jumbotron {
+    width: 500px;
+    height: 500px;
+    margin: auto;
+    text-align: center;
+    border-bottom: 1px solid #e5e5e5;
+    @include filler("images/uther.jpg");
+    @include border-radius(50%);
+    .btn {
+        margin-top: 50%;
+        font-size: 21px;
+        padding: 14px 24px;
+    }
+}
+
+
+/* Supporting marketing content */
+.marketing {
+    margin: 40px 0;
+    font-family: "Cinzel", serif;
+    .logo {
+        vertical-align: middle;
+    }
+    p + h4 {
+        font-family: "Cinzel", serif;
+        margin-top: 28px;
+    }
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+    .container {
+        max-width: 730px;
+    }
+
+    /* Remove the padding we set earlier */
+    .header,
+    .marketing,
+    .footer {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    /* Space out the masthead */
+    .header {
+        margin-bottom: 30px;
+    }
+
+    /* Remove the bottom border on the jumbotron for visual effect */
+    .jumbotron {
+        border-bottom: 0;
+        @include filler("images/uther.jpg");
+        @include border-radius(50%);
+    }
+}
+
+.container {
+    .jumbotron {
+        @include filler("images/uther.jpg");
+        @include border-radius(50%);
+    }
+}
