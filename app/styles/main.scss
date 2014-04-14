@@ -22,7 +22,8 @@ $icon-font-path: "/bower_components/bootstrap-sass-official/vendor/assets/fonts/
 }
 
 .oval-speech {
-  position:relative;
+  position:absolute;
+  right: 375px;
   width:270px;
   padding:50px 40px;
   margin-left:65%;
@@ -41,7 +42,10 @@ $icon-font-path: "/bower_components/bootstrap-sass-official/vendor/assets/fonts/
   border-radius:220px / 120px;
 }
 
-.oval-speech p {font-size:1.25em;}
+.emoteText {
+  font-family: "Cinzel", serif;
+  font-size:1.25em;
+}
 
 /* creates part of the curve */
 .oval-speech:before {
